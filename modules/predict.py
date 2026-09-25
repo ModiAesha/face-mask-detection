@@ -43,10 +43,6 @@ def process_frame(img):
     faces = detector.detect_faces(img)
     face_results = []
 
-    for i, (x, y, w, h) in enumerate(faces):
-        face_crop = img[y:y+h, x:x+w]
-        cv2.imwrite(f"outputs/face_{i+1}.jpg", face_crop)
-
     for (x, y, w, h) in faces:
         face_crop = img[y:y+h, x:x+w]
         predicted_class, confidence = classify_face(face_crop)

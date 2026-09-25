@@ -5,7 +5,7 @@ import numpy as np
 class FaceDetector:
     def __init__(self):
         self.net = cv2.dnn.readNetFromCaffe("deploy.prototxt", "res10_300x300_ssd_iter_140000.caffemodel")
-        self.confidence_threshold = 0.5  # minimum detection confidence to count as a real face
+        self.confidence_threshold = 0.5 
 
     def detect_faces(self, image):
         h, w = image.shape[:2]
@@ -25,7 +25,7 @@ class FaceDetector:
         for i in range(detections.shape[2]):
             confidence = float(detections[0, 0, i, 2])
 
-            if confidence > 0.3:
+            if confidence > 0.5:
 
                 box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
                 (startX, startY, endX, endY) = box.astype("int")
