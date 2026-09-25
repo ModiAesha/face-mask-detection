@@ -84,8 +84,6 @@ ELSE:
 - **SAFE threshold of 70 (not 50):** builds in a safety margin — borderline scores (60-69) are still treated as VIOLATION, reflecting a deliberately conservative design appropriate for a safety-compliance tool.
 ---
 
-Here's the same content condensed to 6 lines:
-
 ## 6. Challenges Faced
 
 1. **Class imbalance (~26:1)** in `mask_improper` — fixed via targeted augmentation + class weighting, though the rare class's recall (42%) remained limited by genuine data scarcity (~90 real images), not model design.
